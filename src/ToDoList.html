@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="ToDoList.css">
+</head>
+
+<body>
+
+    <h2>To Do List</h2>
+    <ul id="taskList">
+        <li>Pay bills</li>
+        <li>Read a book</li>
+        <li>Meet Anna</li>
+        <li>Wash dishes</li>
+    </ul>
+
+    <input type="text" id="newTask" placeholder="Enter a task...">
+    <button id="addTaskBtn" onclick="addNewTask()">Add</button>
+    
+    <script>
+        function addNewTask() {
+            const input = document.getElementById('newTask');
+            const taskValue = input.value;
+
+            if (taskValue.trim() !== "") { 
+                const newTaskItem = document.createElement('li');
+                newTaskItem.textContent = taskValue;
+
+                const taskList = document.getElementById('taskList');
+                taskList.appendChild(newTaskItem);
+
+                input.value = ''; 
+            }
+        }
+    </script>
+</body>
+
+</html>
