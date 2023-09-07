@@ -22,8 +22,11 @@ li:nth-child(even) {
 input[type="text"], button {
     font-size: 20px;
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px; 
+    margin-top: 10px;
+    padding: 5px 10px; 
 }
 
+#taskInputContainer {
+    margin-bottom: 10px; 
+}
 

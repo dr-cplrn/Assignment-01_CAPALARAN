@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="ToDoList.css">
 </head>
@@ -11,6 +10,12 @@
 <body>
 
     <h2>To Do List</h2>
+<div id="taskInputContainer">
+    <input type="text" id="newTask" placeholder="Enter a task...">
+    <button id="addTaskBtn" onclick="addListItem()">Add</button>
+</div>
+
+
     <ul id="taskList">
         <li>Pay bills</li>
         <li>Read a book</li>
@@ -18,24 +23,23 @@
         <li>Wash dishes</li>
     </ul>
 
-    <input type="text" id="newTask" placeholder="Enter a task...">
-    <button id="addTaskBtn" onclick="addNewTask()">Add</button>
-    
     <script>
-        function addNewTask() {
-            const input = document.getElementById('newTask');
-            const taskValue = input.value;
+        function addListItem() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("newTask").value;
+            var t = document.createTextNode(inputValue);
 
-            if (taskValue.trim() !== "") { 
-                const newTaskItem = document.createElement('li');
-                newTaskItem.textContent = taskValue;
+            li.appendChild(t);
 
-                const taskList = document.getElementById('taskList');
-                taskList.appendChild(newTaskItem);
-
-                input.value = ''; 
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("taskList").appendChild(li);
             }
+
+            document.getElementById("newTask").value = "";
         }
+        
     </script>
 </body>
 
